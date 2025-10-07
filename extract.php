@@ -15,12 +15,16 @@ $url = "https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?sele
 
    // Schließt die cURL-Sitzung
    curl_close($ch);
-   print_r($response);
+
+   return json_decode($response, true);
 
    // Dekodiert die JSON-Antwort und gibt Daten zurück 
    return json_decode($response, true);
 }
- 
+ echo "pre>";
+ print_r (fetchParkingData());
+echo "</pre>";
+
 // Gibt die Daten zurück, wenn dieses Skript eingebunden ist
 return fetchParkingData();
 ?>
