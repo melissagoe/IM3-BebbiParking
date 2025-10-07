@@ -1,12 +1,12 @@
 <?php
 
 // Definition der Verbindungsparameter für die Datenbank
-$host     = 'localhost';     // Hostserver, auf dem die DB läuft.
+$host     = 'on89yu.ftp.infomaniak.com';     // Hostserver, auf dem die DB läuft.
 // «localhost» bedeutet: die selbe Serveradresse, auf dem auch die Seiten gespeichert sind
 
-$dbname   = '';   // 371516_9_1
-$username = '';   // 371516_9_1
-$password = '';   // bqZ9@GSPBh23
+$dbname   = '';   // on89yu_bebbiparking
+$username = '';   // on89yu_bebbiparking
+$password = '';   // ParkingBebbi2025$
 
 
 // DSN (Datenquellenname) für PDO
