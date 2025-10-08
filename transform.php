@@ -28,6 +28,7 @@ foreach ($results as $index => $parkhaus) {
 
     $status = $parkhaus['status'] ?? 'offen';
     $address = $parkhaus['address'] ?? null;
+    $title = $parkhaus['title'] ?? "Parkhaus $index";
 
     // Neues Array für DB-Insert
     $transformed[] = [
@@ -35,7 +36,8 @@ foreach ($results as $index => $parkhaus) {
         'total' => $total,
         'auslastung' => $auslastung,
         'status' => $status,
-        'address' => $address
+        'address' => $address,
+        'title' => $title,
     ];
 }
 
