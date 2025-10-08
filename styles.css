@@ -26,6 +26,45 @@
     --Desktop-Button-Text: 20px;
 }
 
-body {
-    background-color: pink;
+.body {
+    background-color: var(--hell_grun);
+}
+
+.h1 {
+    font-family: var(--titel);
+    font-size: var(--Desktop-Titel);
+    color: var(--dunkel_grun);
+}
+
+.h2 {
+    font-family: var(--text);
+    font-size: var(--Desktop-Lead);
+    color: var(--lila);
+}
+
+.text {
+    font-family: var(--text);
+    font-size: var(--Desktop-Text);
+    color: var(--dunkel_grau);
+}
+
+.p {
+    font-family: var(--text);
+    font-size: var(--Desktop-Hinweis);
+    color: var(--dunkel_grun);
+}
+
+.logo a img {
+    width: 40px;
+    height: auto;
+    display: block;
+    max-width: 100%;
+  }
+
+/* Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
 }
