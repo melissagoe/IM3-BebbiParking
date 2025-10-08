@@ -18,10 +18,13 @@
     --Mobile-Text: 16px;
     --Mobile-Hinweis: 10px;
     --Mobile-Button-Text: 16px;
+
+    --Desktop-Titel: 66px;
+    --Desktop-Lead: 25px;
+    --Desktop-Text: 20px;
+    --Desktop-Hinweis: 18px;
+    --Desktop-Button-Text: 20px;
 }
-
-
-
 
 body {
     background-color: pink;
