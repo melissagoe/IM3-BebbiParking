@@ -2,8 +2,7 @@
 
 function fetchParkingData() {
 
-$url = "https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?select=title%2C%20free%2C%20total%2C%20auslastung_prozent%2C%20link%2C%20name%2C%20id2%2C%20id%2C%20status%2C%20address&limit=20";
-
+$url = "https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?select=title%2C%20published%2C%20free%2C%20total%2C%20auslastung_prozent%2C%20name%2C%20id2%2C%20id%2C%20status%2C%20address&limit=20";
    // Initialisiert eine cURL-Sitzung
    $ch = curl_init($url);
 
