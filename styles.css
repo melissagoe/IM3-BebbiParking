@@ -1,3 +1,28 @@
+:root {
+    /* Farben */
+    --dunkel_grun: #8D9752;
+    --hell_grun: #D8D67C;
+    --dunkel_grau: #2B2B37;
+    --beige: #F1EBDC;
+    --lila: #AD8ED0;
+    --dunkel_lila: #9581B5;
+    --red: #FF8569;
+
+    /*fonts */
+    --titel: Barriecito;
+    --text: Geist Mono;
+
+    /* fonts size */
+    --Mobile-Titel: 35px;
+    --Mobile-Lead: 15px;
+    --Mobile-Text: 16px;
+    --Mobile-Hinweis: 10px;
+    --Mobile-Button-Text: 16px;
+}
+
+
+
+
 body {
     background-color: pink;
 }
