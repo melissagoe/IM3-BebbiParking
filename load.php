@@ -13,7 +13,7 @@ try {
     $pdo = new PDO($dsn, $username, $password, $options);
 
     // SQL-Query mit Platzhaltern für das Einfügen von Daten
-    $sql = "INSERT INTO ParkingData (id, free, total, auslastung, status, address) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO BebbiParking_Daten (free, total, auslastung, status, address) VALUES (?, ?, ?, ?, ?)";
 
     // Bereitet die SQL-Anweisung vor
     $stmt = $pdo->prepare($sql);
@@ -21,7 +21,6 @@ try {
     // Fügt jedes Element im Array in die Datenbank ein
     foreach ($dataArray as $item) {
         $stmt->execute([
-            $item['id'],
             $item['free'],
             $item['total'],
             $item['auslastung'],
