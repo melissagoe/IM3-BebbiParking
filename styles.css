@@ -26,8 +26,12 @@
     --Desktop-Button-Text: 20px;
 }
 
+<<<<<<< Updated upstream
 body {
 
+=======
+.body {
+>>>>>>> Stashed changes
     background-color: var(--hell_grun);
 }
 
@@ -55,6 +59,7 @@ body {
     color: var(--dunkel_grun);
 }
 
+<<<<<<< Updated upstream
 .logo {
     position: static;
     /* vorher war absolute */
@@ -86,14 +91,20 @@ body {
     /* Center content vertically */
 }
 
+=======
+>>>>>>> Stashed changes
 .logo a img {
     width: 40px;
     height: auto;
     display: block;
     max-width: 100%;
+<<<<<<< Updated upstream
 }
 
 
+=======
+  }
+>>>>>>> Stashed changes
 
 /* Grid */
 .grid-container {
@@ -101,6 +112,7 @@ body {
     grid-template-columns: auto auto;
     justify-content: center;
     align-items: center;
+<<<<<<< Updated upstream
 
 }
 
@@ -140,4 +152,6 @@ body {
     height: 100%;
     object-fit: cover;
 
+=======
+>>>>>>> Stashed changes
 }
