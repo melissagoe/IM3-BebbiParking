@@ -70,23 +70,7 @@ body {
 }
 
 
-.frame {
-    max-width: 1200px;
-    /* Set a maximum width */
-    background-color: var(--hell_grun);
-    width: 100%;
-    /* Ensure it takes the full width up to the max-width */
-    margin: 0 auto;
-    /* Center the frame horizontally */
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    /* Stack content vertically */
-    align-items: center;
-    /* Center content horizontally */
-    justify-content: center;
-    /* Center content vertically */
-}
+
 
 .logo a img {
     width: 40px;
