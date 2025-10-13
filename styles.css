@@ -9,8 +9,8 @@
     --red: #FF8569;
 
     /*fonts */
-    --titel: Barriecito;
-    --text: Geist Mono;
+    --titel: "Barriecito";
+    --text: "Geist Mono";
 
     /* fonts size */
     --Mobile-Titel: 35px;
@@ -31,25 +31,25 @@ body {
     background-color: var(--hell_grun);
 }
 
-.h1 {
+h1 {
     font-family: var(--titel);
     font-size: var(--Desktop-Titel);
     color: var(--dunkel_grun);
 }
 
-.h2 {
+h2 {
     font-family: var(--text);
     font-size: var(--Desktop-Lead);
     color: var(--lila);
 }
 
-.text {
+text {
     font-family: var(--text);
     font-size: var(--Desktop-Text);
     color: var(--dunkel_grau);
 }
 
-.p {
+p {
     font-family: var(--text);
     font-size: var(--Desktop-Hinweis);
     color: var(--dunkel_grun);
@@ -57,9 +57,11 @@ body {
 
 
 .logo {
-    position: static;
-    /* vorher war absolute */
-    width: auto;
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    display: block;
+
 }
 
 .logo img {
@@ -69,58 +71,41 @@ body {
     /* Abstand zur Box */
 }
 
+.map-container {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    display: block;
 
+}
 
-
-.logo a img {
-    width: 40px;
+.map-container img {
+    width: 600px;
     height: auto;
     display: block;
-    max-width: 100%;
 }
 
-/* Grid */
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.text-in-card {
-    margin: 0 10%;
-    /*top & bottom = 0px, right & left = 10%*/
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-.info-card {
-    width: 100%;
+.info-container {
+    position: absolute;
+    top: 250px;
+    left: 110px;
+    width: 450px;
+    text-align: center;
     padding: 20px;
-    height: 520px;
     background-color: var(--beige);
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
-    transition: transform 0.3s ease;
+    z-index: 2;
 }
 
-/* Karte */
-.map {
-    height: 835px;
-    /* gleiche Höhe wie Info-Card */
-    border-radius: 20px;
-    overflow: hidden;
-
+.hinweis {
+    position: absolute;
+    bottom: 120px;
+    right: 630px;
+    font-weight: bold;
 }
 
-.map img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.Parkhaus_1_gruen_1 {
+    position: absolute;
+
 }
