@@ -26,7 +26,7 @@
     --Desktop-Button-Text: 20px;
 }
 
-.body {
+body {
 
     background-color: var(--hell_grun);
 }
@@ -73,6 +73,7 @@
 .frame {
     max-width: 1200px;
     /* Set a maximum width */
+    background-color: var(--hell_grun);
     width: 100%;
     /* Ensure it takes the full width up to the max-width */
     margin: 0 auto;
