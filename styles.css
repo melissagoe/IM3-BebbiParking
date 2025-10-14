@@ -254,3 +254,82 @@ p {
 .cls-p {
     fill: #ad8ed0;
 }
+
+.infos {
+    position: absolute;
+    top: 700px;
+    left: 110px;
+    font-weight: bold;
+}
+
+.liste {
+    position: absolute;
+    top: 700px;
+    left: 253px;
+    font-weight: bold;
+}
+
+/* switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    top: 703px;
+    left: 170px;
+    rotate: 180deg;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--hell_grun);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--beige);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--dunkel_grun);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--dunkel_grun);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
