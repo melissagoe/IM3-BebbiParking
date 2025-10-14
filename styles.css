@@ -223,7 +223,7 @@ p {
 
 .info-container {
     position: absolute;
-    top: 250px;
+    top: 225px;
     left: 110px;
     width: 450px;
     text-align: center;
@@ -347,5 +347,6 @@ input:checked+.slider:before {
 
 
 .hidden {
-    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }

@@ -1,3 +1,11 @@
+let prognoseChart = null;
+
+let topFreeParking = [];
+
+const schalter = document.querySelector('#schalter');
+
+let istGeschalten = false;
+
 fetch("https://bebbiparking.ramisberger-tabea.ch/unload.php")
     .then(response => response.json())
     .then(data => {
@@ -40,32 +48,45 @@ fetch("https://bebbiparking.ramisberger-tabea.ch/unload.php")
                 console.log(item);
             });
 
+            // Top 5 Parkhäuser mit den meisten freien Plätzen ["Parkhaus Storchen", 120]
+            topFreeParking = latest
+                .map(item => [item.title, item.free])
+                .sort((a, b) => b[1] - a[1]) // Sortieren nach freien Plätzen (absteigend)
+                .slice(0, 5); // Nur die Top 5
+            console.log("Top 5 Parkhäuser mit den meisten freien Plätzen:", topFreeParking);
+
+
 
             const infoContainer = document.querySelector("#info-container");
+            const containerInformation = document.querySelector("#container-information");
             const parkhaueser = document.querySelectorAll(".parkhaus");
             parkhaueser.forEach(parkhaus => {
                 parkhaus.addEventListener("click", () => {
+
                     // alert("Klicken auf Parkhaus mit ID: " + parkhaus.id);
                     let item = parkhaueserDaten.get(parkhaus.id);
                     console.log(item);
-                    infoContainer.innerHTML = `
+                    containerInformation.innerHTML = `
                         <h2>${item.title}</h2>
                         <h3>${item.address}</h3 >
                         <p>Freie Plätze: ${item.free} / ${item.total}</p>
                         <p>Status: ${item.status}</p>
-                    
                     `;
+
+                    // Chart aktualisieren
+                    renderPrognoseChart(item.title, data, parkhaueserIDMap);
+
                     infoContainer.classList.remove("hidden");
 
                     // Aktivieren (z. B. sichtbar machen)
                     infoContainer.classList.add("active");
 
-                    // Nach 5 Sekunden (5000 ms) wieder ausblenden
+                    // Nach 10 Sekunden (5000 ms) wieder ausblenden
                     setTimeout(() => {
                         infoContainer.classList.remove("active"); // Animation/Anzeige beenden
                         infoContainer.classList.add("hidden");    // optional: wieder verstecken
-                        container.innerHTML = "";                 // Inhalt löschen
-                    }, 5000);
+                        //containerInformation.innerHTML = "";                 // Inhalt löschen
+                    }, 10000);
                 });
             });
 
@@ -78,3 +99,93 @@ fetch("https://bebbiparking.ramisberger-tabea.ch/unload.php")
         console.error("Error fetching data:", error);
         document.getElementById("daten").innerHTML = "<p>Fehler beim Laden der Daten.</p>";
     });
+
+
+
+schalter.addEventListener('click', () => {
+    if (istGeschalten) {
+        istGeschalten = false;
+        schalter.textContent = 'Anzeigen';
+        document.getElementById("info-container").classList.add("hidden");
+    }
+});
+
+
+function renderPrognoseChart(parkhausName, allData, parkhaueserIDMap) {
+    const parkhausKey = parkhaueserIDMap.get(parkhausName);
+    if (!parkhausKey) return;
+
+    // aktuelles Datum
+    const now = new Date();
+    //now.setDate(now.getDate() - 7) //eine Woche zurücksetzen
+
+    // Ende = Mitternacht gestern (00:00 heute)
+    const end = new Date(now);
+    end.setHours(0, 0, 0, 0); // heutiger Tagesbeginn (00:00)
+
+    // Start = Mitternacht vor 2 Tagen (00:00 12. Oktober)
+    const start = new Date(end);
+    start.setDate(start.getDate() - 2);
+    //start.setDate(start.getDate() - 8);
+
+    // Filtere nach Adresse oder Titel (je nach API-Struktur)
+    const filtered = allData.filter(entry => {
+        const timestamp = new Date(entry.timestamp);
+        const isSameParkhaus =
+            entry.title === parkhausName ||
+            (entry.address && entry.address.toLowerCase().includes(parkhausKey));
+
+        const isInLastFullDay = timestamp >= start && timestamp < end;
+        return isSameParkhaus && isInLastFullDay;
+    });
+
+    if (filtered.length === 0) {
+        console.warn("Keine Verlaufdaten gefunden für", parkhausName);
+        return;
+    }
+
+    filtered.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+
+    const labels = filtered.map(e =>
+        new Date(e.timestamp).toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit" })
+    );
+
+    const values = filtered.map(e => e.auslastung);
+
+    const ctx = document.getElementById("prognoseChart");
+
+    // alten Chart zerstören, falls vorhanden
+    if (prognoseChart) prognoseChart.destroy();
+
+    prognoseChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: `${parkhausName} – Auslastung (%)`,
+                data: values,
+                borderColor: "#9581B5",
+                backgroundColor: "#AD8ED0",
+                tension: 0.3,
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: "top" },
+                title: {
+                    display: false,
+                    text: `Auslastung der letzten 24 Stunden (${parkhausName})`
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    min: 0,
+                    max: 100
+                }
+            }
+        }
+    });
+}
