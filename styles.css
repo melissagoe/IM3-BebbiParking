@@ -241,3 +241,16 @@ p {
     height: auto;
     display: block;
 }
+
+
+.cls-fuellstand {
+    fill: #d9d66e;
+}
+
+.cls-kontur {
+    fill: #2b2b37;
+}
+
+.cls-p {
+    fill: #ad8ed0;
+}
