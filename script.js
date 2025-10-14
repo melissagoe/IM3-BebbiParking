@@ -2,7 +2,11 @@ let prognoseChart = null;
 
 let topFreeParking = [];
 
+const infoContainer = document.querySelector("#info-container");
 const schalter = document.querySelector('#schalter');
+const karteImg = document.querySelector('#karte-img');
+
+const parkhaueser = document.querySelectorAll(".parkhaus");
 
 let istGeschalten = false;
 
@@ -46,6 +50,12 @@ fetch("https://bebbiparking.ramisberger-tabea.ch/unload.php")
                 const parkhausID = parkhaueserIDMap.get(item.title);
                 parkhaueserDaten.set(parkhausID, item);
                 console.log(item);
+
+                //Parkhäuser (SVG in HTML) mit über 80% Auslastung kriegen klasse "gefuellt"
+                const parkhausElement = document.getElementById(parkhausID);
+                if (item.auslastung >= 80) {
+                    parkhausElement.classList.add("gefuellt");
+                }
             });
 
             // Top 5 Parkhäuser mit den meisten freien Plätzen ["Parkhaus Storchen", 120]
@@ -57,36 +67,35 @@ fetch("https://bebbiparking.ramisberger-tabea.ch/unload.php")
 
 
 
-            const infoContainer = document.querySelector("#info-container");
-            const containerInformation = document.querySelector("#container-information");
-            const parkhaueser = document.querySelectorAll(".parkhaus");
             parkhaueser.forEach(parkhaus => {
                 parkhaus.addEventListener("click", () => {
-
-                    // alert("Klicken auf Parkhaus mit ID: " + parkhaus.id);
-                    let item = parkhaueserDaten.get(parkhaus.id);
-                    console.log(item);
-                    containerInformation.innerHTML = `
+                    if (istGeschalten === false) {
+                        const containerInformation = document.querySelector("#container-information");
+                        // alert("Klicken auf Parkhaus mit ID: " + parkhaus.id);
+                        let item = parkhaueserDaten.get(parkhaus.id);
+                        console.log(item);
+                        containerInformation.innerHTML = `
                         <h2>${item.title}</h2>
                         <h3>${item.address}</h3 >
                         <p>Freie Plätze: ${item.free} / ${item.total}</p>
                         <p>Status: ${item.status}</p>
                     `;
 
-                    // Chart aktualisieren
-                    renderPrognoseChart(item.title, data, parkhaueserIDMap);
+                        // Chart aktualisieren
+                        renderPrognoseChart(item.title, data, parkhaueserIDMap);
 
-                    infoContainer.classList.remove("hidden");
+                        infoContainer.classList.remove("hidden");
 
-                    // Aktivieren (z. B. sichtbar machen)
-                    infoContainer.classList.add("active");
+                        // Aktivieren (z. B. sichtbar machen)
+                        infoContainer.classList.add("active");
 
-                    // Nach 10 Sekunden (5000 ms) wieder ausblenden
-                    setTimeout(() => {
-                        infoContainer.classList.remove("active"); // Animation/Anzeige beenden
-                        infoContainer.classList.add("hidden");    // optional: wieder verstecken
-                        //containerInformation.innerHTML = "";                 // Inhalt löschen
-                    }, 10000);
+                        // Nach 10 Sekunden (5000 ms) wieder ausblenden
+                        setTimeout(() => {
+                            infoContainer.classList.remove("active"); // Animation/Anzeige beenden
+                            infoContainer.classList.add("hidden");    // optional: wieder verstecken
+                            //containerInformation.innerHTML = "";                 // Inhalt löschen
+                        }, 10000);
+                    }
                 });
             });
 
@@ -102,13 +111,33 @@ fetch("https://bebbiparking.ramisberger-tabea.ch/unload.php")
 
 
 
-schalter.addEventListener('click', () => {
-    if (istGeschalten) {
+schalter.addEventListener('change', () => {
+    if (schalter.checked == false) {
+        istGeschalten = true;
+        document.body.classList.add('geschalten');
+        karteImg.src = 'IMG/Map_geschalten.png';
+        infoContainer.innerHTML = `
+        <div id="container-information">
+            <h2>Top 5 Parkhäuser</h2>
+            <ol>
+                ${topFreeParking.map(parkhaus => `<li class="top-liste-item">${parkhaus[0]}: ${parkhaus[1]} freie Plätze</li>`).join('')}
+            </ol>
+            </div>`;
+    } else {
         istGeschalten = false;
-        schalter.textContent = 'Anzeigen';
-        document.getElementById("info-container").classList.add("hidden");
+        document.body.classList.remove('geschalten');
+        karteImg.src = 'IMG/Map.png';
+        infoContainer.innerHTML = `
+        <div id="container-information">
+        </div>
+
+        <div class="chart-container">
+            <canvas id="prognoseChart"></canvas>
+        </div>`;
     }
 });
+
+
 
 
 function renderPrognoseChart(parkhausName, allData, parkhaueserIDMap) {

@@ -267,6 +267,10 @@ p {
     fill: #ad8ed0;
 }
 
+.gefuellt .cls-fuellstand {
+    fill: var(--red);
+}
+
 .infos {
     position: absolute;
     top: 700px;
@@ -349,4 +353,41 @@ input:checked+.slider:before {
 .hidden {
     opacity: 0;
     transition: opacity 0.5s ease;
+}
+
+body.geschalten {
+    background-color: var(--beige);
+}
+
+body.geschalten .hinweis_text,
+body.geschalten .hinweis_pfeil {
+    display: none;
+}
+
+body.geschalten .info-container {
+    opacity: 1;
+    background-color: var(--hell_grun);
+}
+
+.parkhaus:hover {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-30px);
+    }
+
+    60% {
+        transform: translateY(-15px);
+    }
 }
