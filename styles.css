@@ -394,207 +394,209 @@ ol {
 @media (max-width: 700px) {
 
 
-h2 {
-    font-size: var(--Mobile-Lead);
-}
+    h2 {
+        font-size: var(--Mobile-Lead);
+    }
 
-h3 {
-    font-size: var(--Mobile-Sublead);
-}
+    h3 {
+        font-size: var(--Mobile-Sublead);
+    }
 
-text {
-    font-size: var(--Mobile-Text);
-}
+    text {
+        font-size: var(--Mobile-Text);
+    }
 
-p {
-    font-size: var(--Mobile-Hinweis);
-}
+    p {
+        font-size: var(--Mobile-Hinweis);
+    }
 
-.logo {
-    position: static;
-    display: block;
-    margin: 65px auto 10px auto;
-    text-align: center;
-}
+    .logo {
+        position: static;
+        display: block;
+        margin: 65px auto 10px auto;
+        text-align: center;
+    }
 
-.logo img {
-    display: block;
-    height: 70px;
-    margin: 0 auto; 
-}
+    .logo img {
+        display: block;
+        height: 70px;
+        margin: 0 auto;
+    }
 
-.map-container {
-    position: static;
-    display: block;
-    margin: 0px auto 40px auto;
-    text-align: center;
+    .map-container {
+        position: static;
+        display: block;
+        margin: 0px auto 40px auto;
+        text-align: center;
 
-}
+    }
 
-.map-container img {
-    width: 400px;
-    height: auto;
-    display: block;
-    margin: 0 auto; 
+    .map-container img {
+        width: 400px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
 
-}
+    }
 
-/* Parkhäuser */
-.parkhaus_mittel {
-    height: 35px;
-    z-index: 100;
-}
+    /* Parkhäuser */
+    .parkhaus_mittel {
+        height: 35px;
+        z-index: 100;
 
-.parkhaus_gross {
-    height: 50px;
-    z-index: 100;
-}
+    }
 
-.parkhaus_klein {
-    height: 27px;
-    z-index: 100;
-}
+    .parkhaus_gross {
+        height: 50px;
+        z-index: 100;
 
-#storchen {
-    position: relative;
-    top: 266px;
-    left: 240px;
-    z-index: 98;
-}
+    }
 
-#bad_bahnhof {
-    position: relative;
-    top: 222px;
-    left: 330px;
-}
+    .parkhaus_klein {
+        height: 27px;
+        z-index: 100;
+    }
 
-#europe {
-    position: relative;
-    top: 230px;
-    left: 215px;
-}
+    #storchen {
+        position: relative;
+        top: 266px;
+        left: 240px;
+        z-index: 98;
+    }
 
-#aeschen {
-    position: relative;
-    top: 335px;
-    left: 200px;
-    z-index: 101;
-}
+    #bad_bahnhof {
+        position: relative;
+        top: 222px;
+        left: 330px;
+    }
 
-#anfos {
-    position: relative;
-    top: 320px;
-    left: 155px;
-    ;
-}
+    #europe {
+        position: relative;
+        top: 230px;
+        left: 215px;
+    }
 
-#sued {
-    position: relative;
-    top: 380px;
-    left: 75px;
-    z-index: 103;
-}
+    #aeschen {
+        position: relative;
+        top: 335px;
+        left: 200px;
+        z-index: 101;
+    }
 
-#elisabethen {
-    position: relative;
-    top: 325px;
-    left: 20px;
-}
+    #anfos {
+        position: relative;
+        top: 320px;
+        left: 155px;
+        ;
+    }
 
-#messe {
-    position: relative;
-    top: 235px;
-    left: 85px;
-}
+    #sued {
+        position: relative;
+        top: 380px;
+        left: 75px;
+        z-index: 103;
+    }
 
-#claramatte {
-    position: relative;
-    top: 220px;
-    left: -10px;
-    z-index: 99;
-}
+    #elisabethen {
+        position: relative;
+        top: 325px;
+        left: 20px;
+    }
 
-#steinen {
-    position: relative;
-    top: 305px;
-    left: -90px;
-    z-index: 99;
-}
+    #messe {
+        position: relative;
+        top: 235px;
+        left: 85px;
+    }
 
-#post {
-    position: relative;
-    top: 360px;
-    left: -65px;
-    z-index: 101;
-}
+    #claramatte {
+        position: relative;
+        top: 220px;
+        left: -10px;
+        z-index: 99;
+    }
 
-#centralbahn {
-    position: relative;
-    top: 355px;
-    left: -122px;
-    z-index: 100;
-}
+    #steinen {
+        position: relative;
+        top: 305px;
+        left: -90px;
+        z-index: 99;
+    }
 
-#kunstmuseum {
-    position: relative;
-    top: 295px;
-    left: -180px;
-    z-index: 98;
-}
+    #post {
+        position: relative;
+        top: 360px;
+        left: -65px;
+        z-index: 101;
+    }
 
-#city {
-    position: relative;
-    top: 245px;
-    left: -290px;
-    z-index: 97;
-}
+    #centralbahn {
+        position: relative;
+        top: 355px;
+        left: -122px;
+        z-index: 100;
+    }
 
-#rebgasse {
-    position: relative;
-    top: 255px;
-    left: -260px;
-    z-index: 101;
-}
+    #kunstmuseum {
+        position: relative;
+        top: 295px;
+        left: -180px;
+        z-index: 98;
+    }
 
-#clarahuus {
-    position: relative;
-    top: 210px;
-    left: 0px;
-    z-index: 100;
-}
+    #city {
+        position: relative;
+        top: 245px;
+        left: -290px;
+        z-index: 97;
+    }
 
-.info-container {
-    position: absolute;
-    top: 225px;
-    left: 110px;
-    width: 450px;
-    text-align: center;
-    padding: 20px;
-    padding-top: 35px;
-    background-color: var(--beige);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 2;
-}
+    #rebgasse {
+        position: relative;
+        top: 255px;
+        left: -260px;
+        z-index: 101;
+    }
 
-.hinweis_text {
-    position: absolute;
-    bottom: 130px;
-    right: 620px;
-    font-weight: bold;
-}
+    #clarahuus {
+        position: relative;
+        top: 210px;
+        left: 0px;
+        z-index: 100;
+    }
 
-.hinweis_pfeil {
-    position: absolute;
-    bottom: 180px;
-    right: 500px;
-    rotate: -20deg;
-}
+    .info-container {
+        position: absolute;
+        top: 225px;
+        left: 110px;
+        width: 450px;
+        text-align: center;
+        padding: 20px;
+        padding-top: 35px;
+        background-color: var(--beige);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+    }
 
-.hinweis_pfeil img {
-    width: 100px;
-    height: auto;
-    display: block;
-}
+    .hinweis_text {
+        position: absolute;
+        bottom: 130px;
+        right: 620px;
+        font-weight: bold;
+    }
+
+    .hinweis_pfeil {
+        position: absolute;
+        bottom: 180px;
+        right: 500px;
+        rotate: -20deg;
+    }
+
+    .hinweis_pfeil img {
+        width: 100px;
+        height: auto;
+        display: block;
+    }
 
 }
