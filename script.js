@@ -82,6 +82,7 @@ fetch("https://bebbiparking.ramisberger-tabea.ch/unload.php")
                         <h3>${item.address}</h3 >
                         <p>Freie Plätze: ${item.free} / ${item.total}</p>
                         <p>Status: ${item.status}</p>
+                        <br>
                     `;
 
                         // Chart aktualisieren
