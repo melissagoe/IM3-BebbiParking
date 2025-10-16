@@ -16,7 +16,7 @@
     --Mobile-Lead: 15px;
     --Mobile-Sublead: 14px;
     --Mobile-Text: 16px;
-    --Mobile-Hinweis: 10px;
+    --Mobile-Hinweis: 16px;
     --Mobile-Button-Text: 16px;
 
     --Desktop-Lead: 25px;
@@ -390,6 +390,16 @@ ol {
 }
 
 
+#close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--dunkel_grun);
+}
+
 
 @media (max-width: 700px) {
 
@@ -424,15 +434,17 @@ p {
 }
 
 .map-container {
-    position: absolute;
+    position: relative;
     display: block;
-    margin: 0px auto 40px auto;
+    /* margin: 0px auto 40px auto; */
     text-align: center;
-
+    width: 100vw;
+    top: 0;
+    left: 0;
 }
 
 .map-container img {
-    width: 400px;
+    width: 80%;
     height: auto;
     display: block;
     margin: 0 auto; 
@@ -443,123 +455,129 @@ p {
 .parkhaus_mittel {
     height: 35px;
     z-index: 100;
+    /* display: none; */
 }
 
 .parkhaus_gross {
     height: 50px;
     z-index: 100;
+    /* display: none; */
+
 }
 
 .parkhaus_klein {
     height: 27px;
     z-index: 100;
+    /* display: none; */
+
 }
 
+
 #storchen {
-    position: relative;
-    top: 266px;
-    left: 240px;
+    position: absolute;
+    top: 39%;
+    left: 39%;
     z-index: 98;
 }
 
 #bad_bahnhof {
-    position: relative;
-    top: 222px;
-    left: 330px;
+    position: absolute;
+    top: 29%;
+    left: 63%;
 }
 
 #europe {
-    position: relative;
-    top: 230px;
-    left: 215px;
+    position: absolute;
+    top: 32%;
+    left: 48%;
 }
 
 #aeschen {
-    position: relative;
-    top: 335px;
-    left: 200px;
+    position: absolute;
+    top: 51%;
+    left: 51%;
     z-index: 101;
 }
 
 #anfos {
-    position: relative;
-    top: 320px;
-    left: 155px;
+    position: absolute;
+    top: 49%;
+    left: 48%;
     ;
 }
 
 #sued {
-    position: relative;
-    top: 380px;
-    left: 75px;
+    position: absolute;
+    top: 59%;
+    left: 39%;
     z-index: 103;
 }
 
 #elisabethen {
-    position: relative;
-    top: 325px;
-    left: 20px;
+    position: absolute;
+    top: 50%;
+    left: 38%;
 }
 
 #messe {
-    position: relative;
-    top: 235px;
-    left: 85px;
+    position: absolute;
+    top: 30%;
+    left: 56%;
 }
 
 #claramatte {
-    position: relative;
-    top: 220px;
-    left: -10px;
+    position: absolute;
+    top: 26%;
+    left: 45%;
     z-index: 99;
 }
 
 #steinen {
-    position: relative;
-    top: 305px;
-    left: -90px;
+    position: absolute;
+    top: 44%;
+    left: 35%;
     z-index: 99;
 }
 
 #post {
-    position: relative;
-    top: 360px;
-    left: -65px;
+    position: absolute;
+    top: 54%;
+    left: 46%;
     z-index: 101;
 }
 
 #centralbahn {
-    position: relative;
-    top: 355px;
-    left: -122px;
+    position: absolute;
+    top: 56%;
+    left: 42%;
     z-index: 100;
 }
 
 #kunstmuseum {
-    position: relative;
-    top: 295px;
-    left: -180px;
+    position: absolute;
+    top: 45%;
+    left: 42%;
     z-index: 98;
 }
 
 #city {
-    position: relative;
-    top: 245px;
-    left: -290px;
+    position: absolute;
+    top: 35%;
+    left: 31%;
     z-index: 97;
 }
 
 #rebgasse {
-    position: relative;
-    top: 255px;
-    left: -260px;
+    position: absolute;
+    top: 38%;
+    left: 48%;
     z-index: 101;
 }
 
 #clarahuus {
-    position: relative;
-    top: 210px;
-    left: 0px;
+    position: absolute;
+    top: 35%;
+    left: 45%;
     z-index: 100;
 }
 
@@ -595,6 +613,39 @@ p {
     width: 100px;
     height: auto;
     display: block;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    rotate: 180deg;
+    top: 0;
+    left: 0;
+}
+
+.infos {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.liste {
+    position: relative;
+    top: 0;
+    left: 0;
+    order: 3;
+}
+
+.switch_container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+    width: 50vw;
 }
 
 }
