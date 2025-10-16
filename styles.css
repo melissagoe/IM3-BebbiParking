@@ -272,7 +272,8 @@ p {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    margin: 40px auto;
+    left: 45px;
+    top: 88%;
     width: 30vw;
 }
 
@@ -290,6 +291,7 @@ p {
     position: relative;
     top: 0;
     left: 0;
+    font-weight: bold;
 }
 
 .liste {
@@ -297,6 +299,7 @@ p {
     top: 0;
     left: 0;
     order: 3;
+    font-weight: bold;
 }
 
 .switch input {
@@ -412,6 +415,10 @@ ol {
 
 
 @media (max-width: 1025px) {
+
+body {
+    height: 100vw;
+}
 
 
 h2 {
@@ -593,7 +600,7 @@ p {
 
 .info-container {
     position: absolute;
-    top: 50%;                /* Abstand nach oben (anpassbar) */
+    top: 39%;                /* Abstand nach oben (anpassbar) */
     left: 50%;                /* Startpunkt in der Mitte des Viewports */
     transform: translateX(-50%); /* verschiebt um die halbe Breite zur perfekten Zentrierung */
     text-align: center;
@@ -641,6 +648,8 @@ p {
     align-items: center;
     margin: 40px auto;
     width: 50vw;
+    left: 0%;
+    top: 0%;
 }
 
 .hidden {
