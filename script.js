@@ -118,15 +118,15 @@ schalter.addEventListener('change', () => {
         karteImg.src = 'IMG/Map-Basel-gruen.png';
         infoContainer.innerHTML = `
         <div id="container-information">
-            <h2>
-            Die meisten freien Plätze
-            </h2>
+            <h2>Die meisten freien Plätze</h2>
+            <p> <br> </p>
             <ol>
                 ${topFreeParking.map(parkhaus => `<li class="top-liste-item">
                     <p>${parkhaus[0]}: ${parkhaus[1]}</p>
                     </li>`).join('')}
             </ol>
             </div>`;
+
     } else {
         istGeschalten = false;
         document.body.classList.remove('geschalten');
