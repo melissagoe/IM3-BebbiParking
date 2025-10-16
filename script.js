@@ -6,6 +6,9 @@ const infoContainer = document.querySelector("#info-container");
 const schalter = document.querySelector('#schalter');
 const karteImg = document.querySelector('#karte-img');
 
+const closeButton = document.querySelector("#close");
+closeButton.addEventListener("click", closeInfoContainer);
+
 const parkhaueser = document.querySelectorAll(".parkhaus");
 
 let istGeschalten = false;
@@ -88,13 +91,6 @@ fetch("https://bebbiparking.ramisberger-tabea.ch/unload.php")
 
                         // Aktivieren (z. B. sichtbar machen)
                         infoContainer.classList.add("active");
-
-                        // Nach 10 Sekunden (5000 ms) wieder ausblenden
-                        setTimeout(() => {
-                            infoContainer.classList.remove("active"); // Animation/Anzeige beenden
-                            infoContainer.classList.add("hidden");    // optional: wieder verstecken
-                            //containerInformation.innerHTML = "";                 // Inhalt löschen
-                        }, 10000);
                     }
                 });
             });
@@ -132,12 +128,15 @@ schalter.addEventListener('change', () => {
         document.body.classList.remove('geschalten');
         karteImg.src = 'IMG/Map.png';
         infoContainer.innerHTML = `
+        <span id="close">&times;</span>
         <div id="container-information">
         </div>
 
         <div class="chart-container">
             <canvas id="prognoseChart"></canvas>
         </div>`;
+        const closeButton = document.querySelector("#close");
+        closeButton.addEventListener("click", closeInfoContainer);
     }
 });
 
@@ -221,4 +220,11 @@ function renderPrognoseChart(parkhausName, allData, parkhaueserIDMap) {
             }
         }
     });
+}
+
+
+
+function closeInfoContainer(){
+    infoContainer.classList.remove("active"); // Animation/Anzeige beenden
+    infoContainer.classList.add("hidden");    // optional: wieder verstecken
 }
