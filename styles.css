@@ -424,7 +424,7 @@ p {
 }
 
 .map-container {
-    position: static;
+    position: absolute;
     display: block;
     margin: 0px auto 40px auto;
     text-align: center;
