@@ -391,3 +391,8 @@ body.geschalten .info-container {
         transform: translateY(-15px);
     }
 }
+
+ol {
+    font-family: var(--text);
+    color: var(--dunkel_grun);
+}

@@ -115,12 +115,16 @@ schalter.addEventListener('change', () => {
     if (schalter.checked == false) {
         istGeschalten = true;
         document.body.classList.add('geschalten');
-        karteImg.src = 'IMG/Map_geschalten.png';
+        karteImg.src = 'IMG/Map-Basel-gruen.png';
         infoContainer.innerHTML = `
         <div id="container-information">
-            <h2>Top 5 Parkhäuser</h2>
+            <h2>
+            Die meisten freien Plätze
+            </h2>
             <ol>
-                ${topFreeParking.map(parkhaus => `<li class="top-liste-item">${parkhaus[0]}: ${parkhaus[1]} freie Plätze</li>`).join('')}
+                ${topFreeParking.map(parkhaus => `<li class="top-liste-item">
+                    <p>${parkhaus[0]}: ${parkhaus[1]}</p>
+                    </li>`).join('')}
             </ol>
             </div>`;
     } else {
