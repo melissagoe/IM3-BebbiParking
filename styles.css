@@ -31,6 +31,7 @@ body {
     background-color: var(--hell_grun);
     height: 100vh;
     margin: 0px;
+    cursor: url('IMG/Cursor3.png') 4 4, auto;
 }
 
 h2 {
