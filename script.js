@@ -16,7 +16,7 @@ let istGeschalten = false;
 fetch("https://bebbiparking.ramisberger-tabea.ch/unload.php")
     .then(response => response.json())
     .then(data => {
-        console.log(data); // Zum Debuggen
+        //console.log(data); // Zum Debuggen
 
         //const datenDiv = document.getElementById("daten");
 
@@ -52,7 +52,7 @@ fetch("https://bebbiparking.ramisberger-tabea.ch/unload.php")
             latest.forEach(item => {
                 const parkhausID = parkhaueserIDMap.get(item.title);
                 parkhaueserDaten.set(parkhausID, item);
-                console.log(item);
+                //console.log(item);
 
                 //Parkhäuser (SVG in HTML) mit über 80% Auslastung kriegen klasse "gefuellt"
                 const parkhausElement = document.getElementById(parkhausID);
@@ -66,7 +66,7 @@ fetch("https://bebbiparking.ramisberger-tabea.ch/unload.php")
                 .map(item => [item.title, item.free])
                 .sort((a, b) => b[1] - a[1]) // Sortieren nach freien Plätzen (absteigend)
                 .slice(0, 5); // Nur die Top 5
-            console.log("Top 5 Parkhäuser mit den meisten freien Plätzen:", topFreeParking);
+            //console.log("Top 5 Parkhäuser mit den meisten freien Plätzen:", topFreeParking);
 
 
 
@@ -76,12 +76,13 @@ fetch("https://bebbiparking.ramisberger-tabea.ch/unload.php")
                         const containerInformation = document.querySelector("#container-information");
                         // alert("Klicken auf Parkhaus mit ID: " + parkhaus.id);
                         let item = parkhaueserDaten.get(parkhaus.id);
-                        console.log(item);
+                        //console.log(item);
                         containerInformation.innerHTML = `
                         <h2>${item.title}</h2>
                         <h3>${item.address}</h3 >
                         <p>Freie Plätze: ${item.free} / ${item.total}</p>
                         <p>Status: ${item.status}</p>
+                        <br>
                     `;
 
                         // Chart aktualisieren
@@ -217,7 +218,8 @@ function renderPrognoseChart(parkhausName, allData, parkhaueserIDMap) {
                     min: 0,
                     max: 100
                 }
-            }
+            },
+            animation: false,
         }
     });
 }
