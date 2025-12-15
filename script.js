@@ -150,7 +150,7 @@ function renderPrognoseChart(parkhausName, allData, parkhaueserIDMap) {
 
     // aktuelles Datum
     const now = new Date();
-    //now.setDate(now.getDate() - 7) //eine Woche zurücksetzen
+    
 
     // Ende = Mitternacht gestern (00:00 heute)
     const end = new Date(now);
@@ -159,7 +159,7 @@ function renderPrognoseChart(parkhausName, allData, parkhaueserIDMap) {
     // Start = Mitternacht vor 2 Tagen (00:00 12. Oktober)
     const start = new Date(end);
     start.setDate(start.getDate() - 2);
-    //start.setDate(start.getDate() - 8);
+    
 
     // Filtere nach Adresse oder Titel (je nach API-Struktur)
     const filtered = allData.filter(entry => {
@@ -226,7 +226,7 @@ function renderPrognoseChart(parkhausName, allData, parkhaueserIDMap) {
 
 
 
-function closeInfoContainer(){
+function closeInfoContainer() {
     infoContainer.classList.remove("active"); // Animation/Anzeige beenden
     infoContainer.classList.add("hidden");    // optional: wieder verstecken
 }
